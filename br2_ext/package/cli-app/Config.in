@@ -1,0 +1,14 @@
+config BR2_PACKAGE_CLI_APP
+	bool "cli-app"
+	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on BR2_PACKAGE_NRC_MODULE
+	help
+	  Client application for NRC7292
+
+	  https://github.com/newracom/nrc7292_sw_pkg.git
+
+comment "cli_app depends on nrc-module"
+	depends on !BR2_PACKAGE_NRC_MODULE
+
+comment "cli_app depends on threads support"
+	depends on !BR2_TOOLCHAIN_HAS_THREADS

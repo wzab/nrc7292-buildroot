@@ -1,0 +1,2 @@
+source "$BR2_EXTERNAL_WZAB_PATH/package/nrc-module/Config.in"
+source "$BR2_EXTERNAL_WZAB_PATH/package/cli-app/Config.in"

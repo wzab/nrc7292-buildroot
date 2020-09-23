@@ -1,0 +1,10 @@
+config BR2_PACKAGE_NRC_MODULE
+	bool "nrc-module"
+	depends on BR2_LINUX_KERNEL
+	help
+          NRC7292 kernel driver
+
+          https://github.com/wzab/nrc7292_sw_pkg.git
+
+comment "nrc-module needs a Linux kernel to be built"
+	depends on !BR2_LINUX_KERNEL
