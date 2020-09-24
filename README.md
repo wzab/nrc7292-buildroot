@@ -1,5 +1,5 @@
 # nrc7292-buildroot
-This is a repository for testing the operation of NRC7292 driver with various HW platforms and various versions of kernel.
+This is a repository for testing the operation of NRC7292 driver (taken from https://github.com/newracom/nrc7292_sw_pkg ) with various HW platforms and various versions of kernel.
 The repository uses Buildroot 2020.08
 Now 32-bit and 64-bit version of kernel  4.14.114 are tested on Rapsberry Pi 3.
 
