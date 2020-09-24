@@ -1685,16 +1685,6 @@ static int c_spi_probe(struct spi_device *spi)
 
 	switch (sys->chip_id) {
 	case 0x7291:
-		priv->credit_max[0] = CREDIT_AC0;
-		priv->credit_max[1] = CREDIT_AC1;
-		priv->credit_max[2] = CREDIT_AC2;
-		priv->credit_max[3] = CREDIT_AC3_7291;
-
-		priv->credit_max[6] = CREDIT_AC0;
-		priv->credit_max[7] = CREDIT_AC1;
-		priv->credit_max[8] = CREDIT_AC2;
-		priv->credit_max[9] = CREDIT_AC3_7291;
-		priv->fastboot = false;
 	case 0x7292:
 		priv->credit_max[0] = CREDIT_AC0;
 		priv->credit_max[1] = CREDIT_AC1;

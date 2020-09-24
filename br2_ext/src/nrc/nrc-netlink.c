@@ -112,6 +112,9 @@ static struct genl_family nrc_nl_fam = {
 	.name		= NRC_NETLINK_FAMILY_NAME,
 	.version	= 1,
 	.maxattr	= MAX_NL_WFA_CAPI_ATTR,
+#if KERNEL_VERSION(5, 2, 0) <= NRC_TARGET_KERNEL_VERSION
+	.policy = nl_umac_policy,
+#endif
 #ifdef CONFIG_SUPPORT_NEW_NETLINK
 	.parallel_ops	= false,
 #endif
@@ -1345,77 +1348,107 @@ static struct genl_ops nl_umac_nl_ops[] = {
 	{
 		.cmd	= NL_WFA_CAPI_STA_GET_INFO,
 		.doit	= capi_sta_get_info,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_WFA_CAPI_STA_SET_11N,
 		.doit	= capi_sta_set_11n,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_WFA_CAPI_SEND_ADDBA,
 		.doit	= capi_sta_send_addba,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_WFA_CAPI_SEND_DELBA,
 		.doit	= capi_sta_send_delba,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_WFA_CAPI_BSS_MAX_IDLE,
 		.doit	= capi_bss_max_idle,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_WFA_CAPI_BSS_MAX_IDLE_OFFSET,
 		.doit	= capi_bss_max_idle_offset,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_TEST_MMIC_FAILURE,
 		.doit	= test_mmic_failure,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_SHELL_RUN,
 		.doit	= nrc_shell_run,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_SHELL_RUN_SIMPLE,
 		.doit	= nrc_shell_run_simple,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_MGMT_FRAME_INJECTION,
 		.doit	= nrc_inject_mgmt_frame,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_HALOW_SET_DUT,
 		.doit	= halow_set_dut,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_CLI_APP_GET_INFO,
 		.doit	= cli_app_get_info,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_MIC_SCAN,
 		.doit	= nrc_mic_scan,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_FRAME_INJECTION,
 		.doit	= nrc_inject_frame,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 	{
 		.cmd	= NL_SET_IE,
 		.doit	= nrc_set_ie,
+#if KERNEL_VERSION(5, 2, 0) > NRC_TARGET_KERNEL_VERSION
 		.policy = nl_umac_policy,
+#endif
 	},
 };
 

@@ -290,6 +290,13 @@ static const struct ieee80211_iface_combination if_comb_multi[] = {
 	},
 };
 
+#if KERNEL_VERSION(5, 3, 0) <= NRC_TARGET_KERNEL_VERSION
+static const struct
+nla_policy nrc_vendor_command_policy[NUM_VENDOR_ATTR] = {
+	[NRC_VENDOR_ATTR_DATA]	= {.type = NLA_NUL_STRING},
+};
+#endif
+
 static bool get_intf_addr(const char *intf_name, char *addr)
 {
 	struct socket *sock	= NULL;
@@ -2164,7 +2171,11 @@ static int nrc_mac_roc(struct ieee80211_hw *hw, struct ieee80211_channel *chan,
 	return 0;
 }
 
+#if KERNEL_VERSION(5, 4, 0) <= NRC_TARGET_KERNEL_VERSION
+static int nrc_mac_cancel_roc(struct ieee80211_hw *hw, struct ieee80211_vif *vif)
+#else
 static int nrc_mac_cancel_roc(struct ieee80211_hw *hw)
+#endif
 {
 	struct nrc *nw = hw->priv;
 
@@ -2556,31 +2567,51 @@ static struct wiphy_vendor_command nrc_vendor_cmds[] = {
 		.info = { .vendor_id = OUI_NRC,
 			  .subcmd = NRC_OUI_SUBCMD_ANNOUNCE1 },
 		.flags = WIPHY_VENDOR_CMD_NEED_NETDEV,
-		.doit = nrc_vendor_cmd_announce1
+		.doit = nrc_vendor_cmd_announce1,
+#if KERNEL_VERSION(5, 3, 0) <= NRC_TARGET_KERNEL_VERSION
+		.policy = nrc_vendor_command_policy,
+		.maxattr = MAX_VENDOR_ATTR,
+#endif
 	},
 	{
 		.info = { .vendor_id = OUI_NRC,
 			  .subcmd = NRC_OUI_SUBCMD_ANNOUNCE2 },
 		.flags = WIPHY_VENDOR_CMD_NEED_NETDEV,
-		.doit = nrc_vendor_cmd_announce2
+		.doit = nrc_vendor_cmd_announce2,
+#if KERNEL_VERSION(5, 3, 0) <= NRC_TARGET_KERNEL_VERSION
+		.policy = nrc_vendor_command_policy,
+		.maxattr = MAX_VENDOR_ATTR,
+#endif
 	},
 	{
 		.info = { .vendor_id = OUI_NRC,
 			  .subcmd = NRC_OUI_SUBCMD_ANNOUNCE3 },
 		.flags = WIPHY_VENDOR_CMD_NEED_NETDEV,
-		.doit = nrc_vendor_cmd_announce3
+		.doit = nrc_vendor_cmd_announce3,
+#if KERNEL_VERSION(5, 3, 0) <= NRC_TARGET_KERNEL_VERSION
+		.policy = nrc_vendor_command_policy,
+		.maxattr = MAX_VENDOR_ATTR,
+#endif
 	},
 	{
 		.info = { .vendor_id = OUI_NRC,
 			  .subcmd = NRC_OUI_SUBCMD_ANNOUNCE4 },
 		.flags = WIPHY_VENDOR_CMD_NEED_NETDEV,
-		.doit = nrc_vendor_cmd_announce4
+		.doit = nrc_vendor_cmd_announce4,
+#if KERNEL_VERSION(5, 3, 0) <= NRC_TARGET_KERNEL_VERSION
+		.policy = nrc_vendor_command_policy,
+		.maxattr = MAX_VENDOR_ATTR,
+#endif
 	},
 	{
 		.info = { .vendor_id = OUI_NRC,
 			  .subcmd = NRC_OUI_SUBCMD_ANNOUNCE5 },
 		.flags = WIPHY_VENDOR_CMD_NEED_NETDEV,
-		.doit = nrc_vendor_cmd_announce5
+		.doit = nrc_vendor_cmd_announce5,
+#if KERNEL_VERSION(5, 3, 0) <= NRC_TARGET_KERNEL_VERSION
+		.policy = nrc_vendor_command_policy,
+		.maxattr = MAX_VENDOR_ATTR,
+#endif
 	},
 
 };
