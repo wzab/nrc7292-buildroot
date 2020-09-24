@@ -1,9 +1,9 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2020.08 Configuration
+# Buildroot -gc2cd22f Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
-BR2_EXTERNAL_WZAB_PATH="/home/wzab/pados_roboczy_wifi/br2_ext"
+BR2_EXTERNAL_WZAB_PATH="/home/wzab/pados_roboczy_wifi/git/nrc7292-buildroot/br2_ext"
 BR2_HOST_GCC_AT_LEAST_4_9=y
 BR2_HOST_GCC_AT_LEAST_5=y
 BR2_HOST_GCC_AT_LEAST_6=y
@@ -376,7 +376,7 @@ BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
 # BR2_LINUX_KERNEL_CUSTOM_GIT is not set
 # BR2_LINUX_KERNEL_CUSTOM_HG is not set
 # BR2_LINUX_KERNEL_CUSTOM_SVN is not set
-BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="$(call github,raspberrypi,linux,7688b39276ff9952df381d79de63b258e73971ce)/linux-7688b39276ff9952df381d79de63b258e73971ce.tar.gz"
+BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="$(call github,raspberrypi,linux,32ba05a62a8071d091d7582cc37b4bac2962b1dd)/linux-32ba05a62a8071d091d7582cc37b4bac2962b1dd.tar.gz"
 BR2_LINUX_KERNEL_VERSION="custom"
 BR2_LINUX_KERNEL_PATCH=""
 BR2_LINUX_KERNEL_USE_DEFCONFIG=y
@@ -3075,7 +3075,7 @@ BR2_TARGET_UBOOT_CUSTOM_PATCH_DIR=""
 #
 
 #
-# WZAB (in /home/wzab/pados_roboczy_wifi/br2_ext)
+# WZAB (in /home/wzab/pados_roboczy_wifi/git/nrc7292-buildroot/br2_ext)
 #
 BR2_PACKAGE_NRC_MODULE=y
 BR2_PACKAGE_CLI_APP=y
