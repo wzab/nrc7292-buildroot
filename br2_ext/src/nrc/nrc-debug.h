@@ -33,8 +33,8 @@ enum NRC_DEBUG_MASK {
 };
 #define NRC_DBG_MASK_ANY   (0xFFFFFFFF)
 
-/*#define DEFAULT_NRC_DBG_MASK (NRC_DBG_MASK_ANY)*/
-#define DEFAULT_NRC_DBG_MASK (BIT(NRC_DBG_PS) | BIT(NRC_DBG_STATE))
+#define DEFAULT_NRC_DBG_MASK (NRC_DBG_MASK_ANY)
+//#define DEFAULT_NRC_DBG_MASK (BIT(NRC_DBG_PS) | BIT(NRC_DBG_STATE))
 
 extern unsigned long nrc_debug_mask;
 
