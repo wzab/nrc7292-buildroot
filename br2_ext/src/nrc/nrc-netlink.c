@@ -122,6 +122,8 @@ static struct genl_family nrc_nl_fam = {
 	.mcgrps = nl_umac_mcast_grps,
 	.n_mcgrps = ARRAY_SIZE(nl_umac_mcast_grps),
 #endif
+// Below only for kernel >= 5.2.0
+	.policy  = nl_umac_policy,
 };
 
 
@@ -1345,77 +1347,77 @@ static struct genl_ops nl_umac_nl_ops[] = {
 	{
 		.cmd	= NL_WFA_CAPI_STA_GET_INFO,
 		.doit	= capi_sta_get_info,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_WFA_CAPI_STA_SET_11N,
 		.doit	= capi_sta_set_11n,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_WFA_CAPI_SEND_ADDBA,
 		.doit	= capi_sta_send_addba,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_WFA_CAPI_SEND_DELBA,
 		.doit	= capi_sta_send_delba,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_WFA_CAPI_BSS_MAX_IDLE,
 		.doit	= capi_bss_max_idle,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_WFA_CAPI_BSS_MAX_IDLE_OFFSET,
 		.doit	= capi_bss_max_idle_offset,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_TEST_MMIC_FAILURE,
 		.doit	= test_mmic_failure,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_SHELL_RUN,
 		.doit	= nrc_shell_run,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_SHELL_RUN_SIMPLE,
 		.doit	= nrc_shell_run_simple,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_MGMT_FRAME_INJECTION,
 		.doit	= nrc_inject_mgmt_frame,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_HALOW_SET_DUT,
 		.doit	= halow_set_dut,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_CLI_APP_GET_INFO,
 		.doit	= cli_app_get_info,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_MIC_SCAN,
 		.doit	= nrc_mic_scan,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_FRAME_INJECTION,
 		.doit	= nrc_inject_frame,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 	{
 		.cmd	= NL_SET_IE,
 		.doit	= nrc_set_ie,
-		.policy = nl_umac_policy,
+		//.policy = nl_umac_policy,
 	},
 };
 
