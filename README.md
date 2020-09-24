@@ -5,6 +5,11 @@ Now 32-bit and 64-bit version of kernel  4.14.114 are tested on Rapsberry Pi 3.
 
 The directory configs/br-2020.08 contains config files. You should unpack [Buildroot 2020.08](https://buildroot.org/downloads/buildroot-2020.08.tar.bz2) into the top level of cloned repository.
 Then you should copy the appropriate config file as `buildroot-2020.08/.config`.
+Please note, that Buildroot stores the "external" locations as absolute paths. Therefore you should rather connect the `br2_ext` external yourself.
+I simply do:
+`make menuconfig BR2_EXTERNAL=../br2_ext`
+Then please select packages `nrc` and `cli_app` if they are not selected.
+
 After compilation of the image, you should copy the generated `output/images/sdcard.img` to the SD card (with dd).
 Then mount the SD card and modify the files on the first (boot) partition.
 
