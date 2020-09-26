@@ -700,7 +700,7 @@ static struct sk_buff *spi_rx_skb(struct spi_device *spi,
 	u32 nr_slot;
 	int ret;
 	u32 second_length = 0;
-	struct nrc_hif_device *hdev = spi->dev.platform_data; //spi_get_drvdata(spi);
+	struct nrc_hif_device *hdev = spi_get_drvdata(spi);
 	//struct nrc_spi_priv *priv = hdev->priv;
 	//struct nrc *nw = hdev->nw;
 
@@ -828,7 +828,7 @@ fail:
 
 static void spi_credit_skb(struct spi_device *spi)
 {
-	struct nrc_hif_device *hdev = spi->dev.platform_data; //spi_get_drvdata(spi);
+	struct nrc_hif_device *hdev = spi_get_drvdata(spi);
 	struct nrc_spi_priv *priv = hdev->priv;
 	struct sk_buff *skb;
 	struct hif *hif;
@@ -1054,7 +1054,7 @@ static int spi_read_status(struct spi_device *spi)
 
 static int spi_update_status(struct spi_device *spi)
 {
-	struct nrc_hif_device *hdev = spi->dev.platform_data; //spi_get_drvdata(spi);
+	struct nrc_hif_device *hdev = spi_get_drvdata(spi);
 	struct nrc_spi_priv *priv = hdev->priv;
 	struct spi_status_reg *status = &priv->hw.status;
 	struct nrc *nw = hdev->nw;
@@ -1594,7 +1594,7 @@ static void c_spi_enable_irq(struct spi_device *spi, bool enable)
 
 static void c_spi_config(struct spi_device *spi)
 {
-	struct nrc_hif_device *hdev = spi->dev.platform_data; //spi_get_drvdata(spi);
+	struct nrc_hif_device *hdev = spi_get_drvdata(spi);
 	struct nrc_spi_priv *priv = hdev->priv;
 	struct spi_sys_reg *sys = &priv->hw.sys;
 
