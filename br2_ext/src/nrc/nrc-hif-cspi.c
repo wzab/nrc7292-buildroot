@@ -1653,7 +1653,18 @@ static int c_spi_probe(struct spi_device *spi)
 	struct spi_sys_reg *sys = &priv->hw.sys;
 	int ret;
 	int i;
-
+    { //Set delays in controller
+        struct spi_delay setup;
+        struct spi_delay hold;
+        struct spi_delay inactive;
+       	setup.value = 1000; 
+	    setup.unit = SPI_DELAY_UNIT_NSECS; 
+       	hold.value = 1000; 
+	    hold.unit = SPI_DELAY_UNIT_NSECS; 
+       	inactive.value = 1000; 
+	    inactive.unit = SPI_DELAY_UNIT_NSECS; 
+        spi_set_cs_timing(spi,&setup,&hold,&inactive);
+    }
 	priv->spi = spi;
 	priv->loopback_prev_cnt = 0;
 	priv->loopback_total_cnt = 0;
