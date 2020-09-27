@@ -1,6 +1,8 @@
 modprobe mac80211
 modprobe nrc \
   fw_name=nrc7292_cspi.bin bd_name=nrc7292_bd.dat \
+  enable_hspi_init=1 \
   spi_bus_num=1 spi_cs_num=0 \
   spi_gpio_irq=74 spi_gdma_irq=73 \
-  hifspeed=16000000
+  hifspeed=25000000
+
