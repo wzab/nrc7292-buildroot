@@ -1,0 +1,12 @@
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399.dtsi b/arch/arm64/boot/dts/rockchip/rk3399.dtsi
+index bd51c67..556bfb5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399.dtsi
+@@ -705,6 +705,7 @@ spi1: spi@ff1d0000 {
+ 		clock-names = "spiclk", "apb_pclk";
+ 		interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		dmas = <&dmac_peri 12>, <&dmac_peri 13>;
++		rx-sample-delay-ns = <12>;
+ 		dma-names = "tx", "rx";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&spi1_clk &spi1_tx &spi1_rx &spi1_cs0>;

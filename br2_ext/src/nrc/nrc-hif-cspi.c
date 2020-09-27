@@ -223,6 +223,10 @@ static inline void spi_set_transfer(struct spi_transfer *xfer,
 {
 	xfer->cs_change_delay.value = 3; 
 	xfer->cs_change_delay.unit = SPI_DELAY_UNIT_SCK;
+	xfer->delay.value = 3; 
+	xfer->delay.unit = SPI_DELAY_UNIT_SCK;
+	xfer->word_delay.value = 3; 
+	xfer->word_delay.unit = SPI_DELAY_UNIT_SCK;
 	xfer->tx_buf = tx;
 	xfer->rx_buf = rx;
 	xfer->len = len;
