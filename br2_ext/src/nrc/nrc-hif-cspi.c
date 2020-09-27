@@ -221,6 +221,8 @@ static u8 compute_crc7(const u8 *data, ssize_t len)
 static inline void spi_set_transfer(struct spi_transfer *xfer,
 				    void *tx, void *rx, int len)
 {
+	xfer->cs_change_delay.value = 3; 
+	xfer->cs_change_delay.unit = SPI_DELAY_UNIT_SCK;
 	xfer->tx_buf = tx;
 	xfer->rx_buf = rx;
 	xfer->len = len;
@@ -531,7 +533,7 @@ static int _c_spi_read_regs(struct spi_device *spi,
 
 	arr_len = (size > 1) ? ARRAY_SIZE(xfer) : 2;
 	status = spi_sync_transfer(spi, xfer, arr_len);
-
+	printk(KERN_ERR "WZab STF: %x\n buffer:%x,%x,%x,%x,%x,%x,%x,%x\n",(int) status, (int)rx[0],(int)rx[1],(int)rx[2],(int)rx[3],(int)rx[4],(int)rx[5],(int)rx[6],(int)rx[7]);
 	if (status < 0 || WARN_ON(rx[7] != C_SPI_ACK))
 		return -EIO;
 
@@ -1672,8 +1674,12 @@ static int c_spi_probe(struct spi_device *spi)
 	/* Read the register */
 	ret = c_spi_read_regs(spi, C_SPI_WAKE_UP, (void *)sys, sizeof(*sys));
 	if (ret < 0) {
-		nrc_dbg(NRC_DBG_HIF, "failed to read register 0x0\n");
-		goto fail;
+		nrc_dbg(NRC_DBG_HIF, "1st time failed to read register 0x0\n");
+  	       ret = c_spi_read_regs(spi, C_SPI_WAKE_UP, (void *)sys, sizeof(*sys));
+	       if (ret < 0) {
+  		    nrc_dbg(NRC_DBG_HIF, "2nd time failed to read register 0x0\n");
+	            goto fail;
+	       }
 	}
 
 	if (fw_name)

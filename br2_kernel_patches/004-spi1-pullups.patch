@@ -1,0 +1,18 @@
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399.dtsi b/arch/arm64/boot/dts/rockchip/rk3399.dtsi
+index 89d2cc0..b464521 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399.dtsi
+@@ -2364,11 +2364,11 @@ spi0_rx: spi0-rx {
+ 		spi1 {
+ 			spi1_clk: spi1-clk {
+ 				rockchip,pins =
+-					<1 RK_PB1 2 &pcfg_pull_up>;
++					<1 RK_PB1 2 &pcfg_pull_up_8ma>;
+ 			};
+ 			spi1_cs0: spi1-cs0 {
+ 				rockchip,pins =
+-					<1 RK_PB2 2 &pcfg_pull_up>;
++					<1 RK_PB2 2 &pcfg_pull_up_8ma>;
+ 			};
+ 			spi1_rx: spi1-rx {
+ 				rockchip,pins =
