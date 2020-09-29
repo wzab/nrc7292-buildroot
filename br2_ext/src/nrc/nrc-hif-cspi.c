@@ -1685,7 +1685,17 @@ static int c_spi_probe(struct spi_device *spi)
 
 	if (fw_name && enable_hspi_init)
 		spi_reset(hdev);
-
+    /* Reset the NRC7202 according to:
+        https://github.com/newracom/nrc7292_sw_pkg/issues/5#issuecomment-700336952 
+        The below action is required to cure this situation.
+            At least 64bit dummy SCK clock with keeping nCS low and MOSI high.
+    */
+    {
+       struct spi_transfer xfer[1] = {{0},};
+       u8 tx[10]={0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
+       spi_set_transfer(&xfer[0], tx, NULL, 10);
+       spi_sync_transfer(spi,&xfer[0],1);
+    }
 	/* Read the register */
 	ret = c_spi_read_regs(spi, C_SPI_WAKE_UP, (void *)sys, sizeof(*sys));
 	if (ret < 0) {
