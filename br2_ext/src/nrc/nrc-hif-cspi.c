@@ -1690,7 +1690,7 @@ static int c_spi_probe(struct spi_device *spi)
         The below action is required to cure this situation.
             At least 64bit dummy SCK clock with keeping nCS low and MOSI high.
     */
-    {
+    if (0) {
        struct spi_transfer xfer[1] = {{0},};
        u8 tx[10]={0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
        spi_set_transfer(&xfer[0], tx, NULL, 10);
