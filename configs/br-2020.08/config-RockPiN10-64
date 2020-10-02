@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g3d57ae6-dirty Configuration
+# Buildroot -ga9688ef Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_EXTERNAL_WZAB_PATH="/home/wzab/pados_roboczy_wifi/git/nrc7292-buildroot/br2_ext"
@@ -359,7 +359,7 @@ BR2_GENERATE_LOCALE=""
 # BR2_TARGET_TZ_INFO is not set
 BR2_ROOTFS_USERS_TABLES=""
 BR2_ROOTFS_OVERLAY="../br2_overlay"
-BR2_ROOTFS_POST_BUILD_SCRIPT="board/radxa/rockpi-n10/post-build.sh"
+BR2_ROOTFS_POST_BUILD_SCRIPT="board/radxa/rockpi-n10/post-build.sh ../fix_target.sh"
 BR2_ROOTFS_POST_FAKEROOT_SCRIPT=""
 BR2_ROOTFS_POST_IMAGE_SCRIPT="support/scripts/genimage.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="-c board/radxa/rockpi-n10/genimage.cfg"
@@ -1956,7 +1956,7 @@ BR2_PACKAGE_IFUPDOWN_SCRIPTS=y
 # BR2_PACKAGE_IPTRAF_NG is not set
 # BR2_PACKAGE_IPUTILS is not set
 # BR2_PACKAGE_IRSSI is not set
-# BR2_PACKAGE_IW is not set
+BR2_PACKAGE_IW=y
 # BR2_PACKAGE_IWD is not set
 # BR2_PACKAGE_JANUS_GATEWAY is not set
 # BR2_PACKAGE_KEEPALIVED is not set
