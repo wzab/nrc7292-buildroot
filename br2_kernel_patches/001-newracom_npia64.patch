@@ -1,0 +1,21 @@
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-nanopi-a64.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-nanopi-a64.dts
+index e58db8a..fc6f40a 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64-nanopi-a64.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-nanopi-a64.dts
+@@ -15,6 +15,7 @@ / {
+ 	aliases {
+ 		ethernet0 = &emac;
+ 		serial0 = &uart0;
++		spi0 = &spi0;
+ 	};
+ 
+ 	chosen {
+@@ -261,3 +262,8 @@ &uart0 {
+ &usbphy {
+ 	status = "okay";
+ };
++
++&spi0 {
++    status = "okay";
++};
++
